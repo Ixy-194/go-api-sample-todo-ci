@@ -19,7 +19,7 @@ jobs:
           # reviewdog の動作モードの指定
           reporter: github-pr-review
           # 指摘レベルの指定
-          level: warning
+          level: info
           golangci_lint_flags: "--config=.golangci.yml"
           filter_mode: added
           tool_name: golangci-lint-github-pr-review
