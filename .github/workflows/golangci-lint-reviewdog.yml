@@ -13,13 +13,13 @@ jobs:
       REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v3
-      - uses: reviewdog/action-golangci-lint@v2
+      - uses: reviewdog/action-golangci-lint@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # reviewdog の動作モードの指定
           reporter: github-pr-review
           # 指摘レベルの指定
-          level: info
+          level: warning
           golangci_lint_flags: "--config=.golangci.yml"
           filter_mode: added
           tool_name: golangci-lint-github-pr-review
