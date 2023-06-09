@@ -1,0 +1,23 @@
+# ワークフローの名前
+name: golangci-lint
+
+on:
+  pull_request:
+
+# ジョブ定義
+jobs:
+  # lint
+  golangci-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: reviewdog/action-golangci-lint@v2
+        with:
+          go-version: 1.19
+          github_token: ${{ secrets.github_token }}
+          # reviewdog の動作モードの指定
+          reporter: github-pr-review
+          # 指摘レベルの指定
+          level: warning
+          golangci_lint_flags: "--config=.golangci.yml"
+          filter_mode: nofilter

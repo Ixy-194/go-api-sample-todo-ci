@@ -10,7 +10,7 @@ on:
 # ジョブ定義
 jobs:
   # ジョブ名
-  test:
+  unit-test:
     # ジョブの実行環境の指定
     runs-on: ubuntu-latest
     # ジョブ内で実行する step を定義
@@ -24,3 +24,15 @@ jobs:
       # テストの実行
       - name: Run Test
         run: go test -v ./...
+  golangci-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: reviewdog/action-golangci-lint@v2
+        with:
+          go-version: 1.19
+          github_token: ${{ secrets.github_token }}
+          reporter: github-check
+          level: warning
+          golangci_lint_flags: "--config=.golangci.yml"
+          filter_mode: nofilter
