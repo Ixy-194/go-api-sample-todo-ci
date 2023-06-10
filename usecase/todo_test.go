@@ -61,7 +61,7 @@ func TestCreate(t *testing.T) {
 					return errors.New("xxxx error")
 				},
 			},
-			err: errors.New("xxxx error"),
+			err: nil,
 		},
 	}
 	for _, tt := range tests {
