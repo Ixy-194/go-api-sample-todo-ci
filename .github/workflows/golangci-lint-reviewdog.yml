@@ -1,5 +1,5 @@
 # ワークフローの名前
-name:　Golangci-lint ReviewDog 
+name: Golangci-lint ReviewDog 
 
 on:
   pull_request:
