@@ -24,3 +24,11 @@ jobs:
       # テストの実行
       - name: Run Test
         run: go test -v ./...
+      # Slack 通知用の step
+      uses: rtCamp/action-slack-notify@v2.0.2
+      # テストが失敗したときのみ通知する
+      if: failure()
+      env:
+        SLACK_TITLE: Test Failure
+        SLACK_COLOR: danger
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
