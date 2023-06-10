@@ -1,5 +1,5 @@
 # ワークフローの名前
-name: golangci-lint
+name:　Golangci-lint ReviewDog 
 
 on:
   pull_request:
@@ -17,7 +17,6 @@ jobs:
           go-version: ^1.20
           # reviewdog の動作モードの指定
           reporter: github-pr-review
-          # 指摘レベルの指定
+          # Github Status へのレポートレベルの指定
           level: warning
           golangci_lint_flags: "--config=.golangci.yml"
-          filter_mode: added
