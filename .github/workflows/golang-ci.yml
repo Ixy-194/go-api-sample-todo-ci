@@ -37,4 +37,3 @@ jobs:
           reporter: github-check
           level: warning
           golangci_lint_flags: "--config=.golangci.yml"
-          filter_mode: added
