@@ -25,6 +25,8 @@ jobs:
       - name: Run Test
         run: go test -v ./...
   golangci-lint:
+    permissions:
+      checks: write
     # push 時のみ動作するようにする
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
